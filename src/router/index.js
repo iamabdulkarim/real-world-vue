@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import EventList from '../views/EventList.vue';
+import EventCreate from '../views/EventCreate.vue';
+import EventShow from '../views/EventShow.vue';
 
 Vue.use(VueRouter);
 
@@ -11,6 +14,21 @@ const routes = [
     component: Home,
   },
   {
+    path: "/list",
+    name: "event-list",
+    component: EventList,
+  },
+  {
+    path: "/event/create",
+    name: "event-create",
+    component: EventCreate,
+  },
+  {
+    path: "/event",
+    name: "event-show",
+    component: EventShow,
+  },
+  {
     path: "/about-us",
     name: "About",
     // route level code-splitting
@@ -18,11 +36,9 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+
+    alias:"/about"
   },
-  {
-    path:"/about",
-    redirect: {name:"About"}
-  }
 ];
 
 const router = new VueRouter({

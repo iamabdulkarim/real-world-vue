@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import EventList from '../views/EventList.vue';
 import EventCreate from '../views/EventCreate.vue';
 import EventShow from '../views/EventShow.vue';
+import User from '../views/User.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes = [
     path: "/event",
     name: "event-show",
     component: EventShow,
+  },
+  {
+    path:"/user/:username",
+    name: "user",
+    component: User
   },
   {
     path: "/about-us",

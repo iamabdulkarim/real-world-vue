@@ -3,28 +3,31 @@
   <div class="event-card -shadow">
     <span class="eyebrow">@{{ last.time}} on {{last.date}}</span>
     <h4 class="title">{{ last.title }}</h4>
-    <span>{{ last.attendees.length}} attending</span>  
+    <BaseIcon name="users">{{ last.attendees.length}} attending</BaseIcon>
+     
   </div>
   </router-link> 
 </template>
 
 <script>
+import BaseIcon from "./BaseIcon.vue"
   export default {
     data() {
-      return {
-        last:{
-          id:1,
-          title: 'Park Cleanup',
-          date: 'Tues Aug 19, 2018',
-          time: '6.00',
-          attendees: [
-            {id: 'abc123', name:'Abu Bakkar'},
-            {id: 'def456', name:'Abdul Karim'}
-          ]
-        }
-      }
+        return {
+            last: {
+                id: 1,
+                title: "Park Cleanup",
+                date: "Tues Aug 19, 2018",
+                time: "6.00",
+                attendees: [
+                    { id: "abc123", name: "Abu Bakkar" },
+                    { id: "def456", name: "Abdul Karim" }
+                ]
+            }
+        };
     },
-  }
+    components: { BaseIcon }
+}
 </script>
 
 <style  scoped>

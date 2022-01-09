@@ -2,8 +2,8 @@
 
   <div class="list">
     <h1>This is an event page</h1>
-    <EventCard/>
-    <BaseIcon/>
+    <EventCard v-for="event in events" :key="event.id" :event="event"/>
+  
       
   
   </div>
@@ -11,12 +11,28 @@
 
 <script>
 import EventCard from '@/components/EventCard.vue';
-import BaseIcon from '../components/BaseIcon.vue';
+
+import axios from 'axios';
   export default {
     components: {
     EventCard,
-    BaseIcon
-},
+
+    },
+    data() {
+      return {
+        events: []
+      }
+    },
+    created () {
+      axios
+        .get('http://localhost:3000/events')
+        .then(response=> {
+          this.events = response.data
+        })
+        .catch(error => {
+          console.log('there was an error:' + error.response)
+        })
+    },
   }
 </script>
 

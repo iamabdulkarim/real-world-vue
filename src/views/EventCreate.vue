@@ -1,10 +1,20 @@
 <template>
-  <div class="list">
-    <h1>Showing event #{{ id }}</h1>
+  <div>
+      <h1> Create an Event, {{userName}}</h1>
+      <p>This event was created by {{userName}}</p>
   </div>
 </template>
+
 <script>
-export default {
-  props:['id']
-}
+  export default {
+    computed: {
+      userName() {
+        return this.$store.state.user.name 
+      }
+    },
+  }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
